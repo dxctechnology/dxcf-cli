@@ -1,0 +1,45 @@
+{
+  "$id": "https://schemas.dxcp.technology/Accounts.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "DXC Framework Accounts data file",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Account"
+  },
+  "definitions": {
+    "Account": {
+      "type": "object",
+      "required": [ "Name", "Alias", "Id" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the Account.",
+          "enum": [ "Organization", "Jumpstart", "Management", "Identity", "Log", "Recovery", "Build", "Core", "Production", "Staging", "UAT", "QA", "Testing", "Development" ]
+        },
+        "LongName": {
+          "type": "string",
+          "description": "The Long Name of the Account.",
+          "minLength": 2,
+          "maxLength": 32,
+          "pattern": "^([A-Z][ a-z0-9]{0,31})*$"
+        },
+        "Alias": {
+          "type": "string",
+          "description": "The IAM Alias of the Account.",
+          "pattern": "^[a-z][a-z0-9]{0,31}(-?[a-z][a-z0-9]{0,31})*$"
+        },
+        "Id": {
+          "type": "string",
+          "description": "The Id of the Account.",
+          "pattern": "^[0-9]{12}$"
+        },
+        "Source": {
+          "type": "string",
+          "description": "The Source of the Account.",
+          "enum": [ "Default", "System", "User" ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

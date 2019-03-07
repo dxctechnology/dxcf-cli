@@ -1,0 +1,33 @@
+{
+  "$id": "https://schemas.dxcp.technology/Environments.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "DXC Framework Environments data file",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Environment"
+  },
+  "definitions": {
+    "Environment": {
+      "type": "object",
+      "required": [ "Name", "Code" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the Environment.",
+          "enum": [ "Audit", "Build", "Core", "Development", "Example", "Identity", "Log", "Management", "Production", "QA", "Recovery", "Staging", "Testing", "UAT" ]
+        },
+        "Code": {
+          "type": "string",
+          "description": "The Code of the Environment.",
+          "enum": [ "a", "b", "c", "d", "e", "i", "l", "m", "p", "q", "r", "s", "t", "u" ]
+        },
+        "Source": {
+          "type": "string",
+          "description": "The Source of the Environment.",
+          "enum": [ "Default", "System", "User" ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

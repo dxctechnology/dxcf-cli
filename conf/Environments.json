@@ -1,0 +1,14 @@
+[
+  { "Name": "Audit",       "Code": "a" },
+  { "Name": "Build",       "Code": "b" },
+  { "Name": "Core",        "Code": "c" },
+  { "Name": "Development", "Code": "d" },
+  { "Name": "Example",     "Code": "e" },
+  { "Name": "Identity",    "Code": "i" },
+  { "Name": "Log",         "Code": "l" },
+  { "Name": "Management",  "Code": "m" },
+  { "Name": "Production",  "Code": "p" },
+  { "Name": "Recovery",    "Code": "r" },
+  { "Name": "Staging",     "Code": "s" },
+  { "Name": "Testing",     "Code": "t" }
+]

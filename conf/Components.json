@@ -1,0 +1,16 @@
+[
+  { "Name": "AccessGateway",         "Code": "ag" },
+  { "Name": "AccessServer",          "Code": "as" },
+  { "Name": "Database",              "Code": "db" },
+  { "Name": "AuroraDatabase",        "Code": "dba" },
+  { "Name": "MySQLDatabase",         "Code": "dbm" },
+  { "Name": "OracleDatabase",        "Code": "dbo" },
+  { "Name": "PostgreSQLDatabase",    "Code": "dbp" },
+  { "Name": "SQLServerDatabase",     "Code": "dbs" },
+  { "Name": "DomainController",      "Code": "dc" },
+  { "Name": "DataSecurityManager",   "Code": "dsm" },
+  { "Name": "SFTP",                  "Code": "ft" },
+  { "Name": "LoadBalancer",          "Code": "lb" },
+  { "Name": "Manager",               "Code": "m" },
+  { "Name": "ManagementConsole",     "Code": "mc" }
+]

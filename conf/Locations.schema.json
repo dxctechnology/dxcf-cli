@@ -1,0 +1,35 @@
+{
+  "$id": "https://schemas.dxcp.technology/Locations.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "DXC Framework Locations data file",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Location"
+  },
+  "definitions": {
+    "Location": {
+      "type": "object",
+      "required": [ "Name", "Code" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the Location.",
+          "minLength": 2,
+          "maxLength": 32,
+          "pattern": "^((us-east-1|us-east-2|us-west-1|us-west-2|ca-central-1|eu-west-1|eu-central-1|eu-west-2|eu-north-1|eu-west-3|ap-southeast-1|ap-southeast-2|ap-northeast-2|ap-northeast-1|ap-south-1|sa-east-1)|([A-Z][a-z0-9]{0,31})*)$"
+        },
+        "Code": {
+          "type": "string",
+          "description": "The Code of the Location.",
+          "pattern": "^[a-z][a-z][a-z0-9]$"
+        },
+        "Source": {
+          "type": "string",
+          "description": "The Source of the Location.",
+          "enum": [ "Default", "System", "User" ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
