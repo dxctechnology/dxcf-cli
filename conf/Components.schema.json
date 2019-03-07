@@ -1,0 +1,35 @@
+{
+  "$id": "https://schemas.dxcp.technology/Components.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "DXC Framework Components data file",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Component"
+  },
+  "definitions": {
+    "Component": {
+      "type": "object",
+      "required": [ "Name", "Code" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the Component.",
+          "minLength": 2,
+          "maxLength": 32,
+          "pattern": "^([A-Z][a-z0-9]{0,31})*$"
+        },
+        "Code": {
+          "type": "string",
+          "description": "The Code of the Component.",
+          "pattern": "^[a-z][a-z0-9]{0,2}$"
+        },
+        "Source": {
+          "type": "string",
+          "description": "The Source of the Component.",
+          "enum": [ "Default", "System", "User" ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

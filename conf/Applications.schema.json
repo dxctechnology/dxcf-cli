@@ -1,0 +1,35 @@
+{
+  "$id": "https://schemas.dxcp.technology/Applications.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "DXC Framework Applications data file",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Application"
+  },
+  "definitions": {
+    "Application": {
+      "type": "object",
+      "required": [ "Name", "Code" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the Application.",
+          "minLength": 2,
+          "maxLength": 32,
+          "pattern": "^([A-Z][a-z0-9]{0,31})*$"
+        },
+        "Code": {
+          "type": "string",
+          "description": "The Code of the Application.",
+          "pattern": "^[a-z][a-z0-9]{0,4}$"
+        },
+        "Source": {
+          "type": "string",
+          "description": "The Source of the Application.",
+          "enum": [ "Default", "System", "User" ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

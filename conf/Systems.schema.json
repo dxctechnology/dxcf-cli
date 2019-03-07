@@ -1,0 +1,36 @@
+{
+  "$id": "https://schemas.dxcf.technology/Systems.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "DXC Framework Systems data file",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/System"
+  },
+  "uniqueItems": true,
+  "definitions": {
+    "System": {
+      "type": "object",
+      "required": [ "Name", "Code" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the System.",
+          "minLength": 2,
+          "maxLength": 32,
+          "pattern": "^([A-Z][a-z0-9]{0,31})*$"
+        },
+        "Code": {
+          "type": "string",
+          "description": "The Code of the System.",
+          "pattern": "^[a-z][a-z0-9]{0,5}$"
+        },
+        "Source": {
+          "type": "string",
+          "description": "The Source of the System.",
+          "enum": [ "Default", "System", "User" ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

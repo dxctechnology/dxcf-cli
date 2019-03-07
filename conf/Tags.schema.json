@@ -1,0 +1,34 @@
+{
+  "$id": "https://schemas.dxcp.technology/Tags.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "DXC Framework Tags data file",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Tag"
+  },
+  "definitions": {
+    "Tag": {
+      "type": "object",
+      "required": [ "Key", "Value" ],
+      "properties": {
+        "Key": {
+          "type": "string",
+          "description": "The Key of the Tag.",
+          "minLength": 2,
+          "maxLength": 32,
+          "pattern": "^([A-Z][a-z0-9]{0,31})*$"
+        },
+        "Value": {
+          "type": "string",
+          "description": "The Value of the Tag."
+        },
+        "Source": {
+          "type": "string",
+          "description": "The Source of the Tag.",
+          "enum": [ "System", "Account", "Region", "Stack", "User" ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
