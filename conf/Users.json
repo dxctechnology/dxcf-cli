@@ -1,0 +1,7 @@
+[
+  { "Name": "bootstrapadministrator", "FullName": "Bootstrap Administrator", "Email": "bootstrapadministrator@dxcp.technology", "Phone": "+00000000000" },
+  { "Name": "administrator",          "FullName": "Administrator",           "Email": "administrator@dxcp.technology",          "Phone": "+00000000000" },
+  { "Name": "developer",              "FullName": "Developer",               "Email": "developer@dxcp.technology",              "Phone": "+00000000000" },
+  { "Name": "manager",                "FullName": "Manager",                 "Email": "manager@dxcp.technology",                "Phone": "+00000000000" },
+  { "Name": "user",                   "FullName": "User",                    "Email": "user@dxcp.technology",                   "Phone": "+00000000000" }
+]

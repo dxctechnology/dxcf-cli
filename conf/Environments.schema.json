@@ -24,7 +24,7 @@
         "Source": {
           "type": "string",
           "description": "The Source of the Environment.",
-          "enum": [ "Default", "System", "User" ]
+          "enum": [ "Default", "Common", "System", "User" ]
         }
       },
       "additionalProperties": false

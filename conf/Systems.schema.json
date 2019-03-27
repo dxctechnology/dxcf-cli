@@ -24,10 +24,14 @@
           "description": "The Code of the System.",
           "pattern": "^[a-z][a-z0-9]{0,5}$"
         },
+        "Default": {
+          "type": "boolean",
+          "description": "An optional flag to indicate the default System."
+        },
         "Source": {
           "type": "string",
           "description": "The Source of the System.",
-          "enum": [ "Default", "System", "User" ]
+          "enum": [ "Default", "Common", "User" ]
         }
       },
       "additionalProperties": false
