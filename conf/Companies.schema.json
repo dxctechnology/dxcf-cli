@@ -23,10 +23,14 @@
           "description": "The Code of the Company.",
           "pattern": "^[a-z][a-z0-9]{0,3}$"
         },
+        "Default": {
+          "type": "boolean",
+          "description": "An optional flag to indicate the default Company."
+        },
         "Source": {
           "type": "string",
           "description": "The Source of the Company.",
-          "enum": [ "Default", "System", "User" ]
+          "enum": [ "Default", "Common", "User" ]
         }
       },
       "additionalProperties": false

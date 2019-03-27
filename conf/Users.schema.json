@@ -1,0 +1,49 @@
+{
+  "$id": "https://schemas.dxcp.technology/Users.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "DXC Framework Users data file",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/User"
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "required": [ "Name", "Email", "Phone" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the User.",
+          "pattern": "^([a-z0-9]{0,15})*$"
+        },
+        "FullName": {
+          "type": "string",
+          "description": "The Full Name of the User.",
+          "minLength": 2,
+          "maxLength": 32,
+          "pattern": "^([A-Z][ a-z0-9]{0,31})*$"
+        },
+        "Email": {
+          "type": "string",
+          "description": "The Email Address of the User.",
+          "format": "email"
+        },
+        "Phone": {
+          "type": "string",
+          "description": "The Phone Number of the User.",
+          "pattern": "^[+][0-9]{11}$"
+        },
+        "Default": {
+          "type": "boolean",
+          "description": "An optional flag to indicate the default User."
+        },
+        "Source": {
+          "type": "string",
+          "description": "The Source of the User.",
+          "enum": [ "Default", "Common", "System", "User" ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

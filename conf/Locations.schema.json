@@ -9,7 +9,7 @@
   "definitions": {
     "Location": {
       "type": "object",
-      "required": [ "Name", "Code" ],
+      "required": [ "Name", "Code", "Type" ],
       "properties": {
         "Name": {
           "type": "string",
@@ -23,10 +23,15 @@
           "description": "The Code of the Location.",
           "pattern": "^[a-z][a-z][a-z0-9]$"
         },
+        "Type": {
+          "type": "string",
+          "description": "The Type of the Location.",
+          "enum": [ "Region", "City", "Building" ]
+        },
         "Source": {
           "type": "string",
           "description": "The Source of the Location.",
-          "enum": [ "Default", "System", "User" ]
+          "enum": [ "Default", "Common", "System", "User" ]
         }
       },
       "additionalProperties": false

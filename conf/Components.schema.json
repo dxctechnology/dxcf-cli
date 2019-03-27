@@ -26,7 +26,7 @@
         "Source": {
           "type": "string",
           "description": "The Source of the Component.",
-          "enum": [ "Default", "System", "User" ]
+          "enum": [ "Default", "Common", "System", "User" ]
         }
       },
       "additionalProperties": false
