@@ -9,9 +9,13 @@ const path = require('path');
 const debug = require('debug')('dxcf:cli:stack');
 const chalk = require('chalk');
 
-const env = require(path.join(__dirname, '..', 'lib', 'env'));
 const util = require(path.join(__dirname, '..', 'lib', 'util'));
+const defaults = require(path.join(__dirname, '..', 'lib', 'defaults'));
 const config = require(path.join(__dirname, '..', 'lib', 'config'));
+
+const errors = require(path.join(__dirname, '..', 'lib', 'errors'));
+const CommandError = require(path.join(__dirname, '..', 'lib', 'errors')).CommandError;
+
 const stack = require(path.join(__dirname, '..', 'lib', 'commands', 'stack'));
 
 const parseBool = (bool) => {
@@ -21,21 +25,17 @@ const parseBool = (bool) => {
 
 program.description('DXC Framework Stack Sub-Commands');
 
-program.option('-v --verbose [false]', 'Verbose', parseBool, env.VERBOSE)
-       .option('-c --confirm [false]', 'Confirm', parseBool, env.CONFIRM)
-       .option('--home <path>', 'DXC Framework Home Directory', env.HOME)
-       .option('--templates <path>', 'DXC Framework Templates Directory', env.TEMPLATES)
-       .option('--functions <path>', 'DXC Framework Functions Directory', env.FUNCTIONS)
-       .option('--scripts <path>', 'DXC Framework Scripts Directory', env.SCRIPTS)
-       .option('--config <path>', 'DXC Framework Configuration Directory', env.CONFIG)
-       .option('--owner <OWNER>', 'DXC Framework Owner Name', env.OWNER)
-       .option('--company <COMPANY>', 'DXC Framework Company Name', env.COMPANY)
-       .option('--system <SYSTEM>', 'DXC Framework System Name', env.SYSTEM)
-       .option('--location <LOCATION>', 'DXC Framework Location Name', env.LOCATION)
-       .option('--environment <ENVIRONMENT>', 'DXC Framework Environment Name', env.ENVIRONMENT)
-       .option('--region <REGION>', 'DXC Framework Region Name', env.REGION)
-       .option('--account <ACCOUNT>', 'DXC Framework Account Name', env.ACCOUNT)
-       .option('--user <USER>', 'DXC Framework User Name', env.USER)
+program.option('-v, --verbose [false]', 'Verbose', parseBool, defaults.verbose)
+       .option('-c, --confirm [false]', 'Confirm', parseBool, defaults.confirm)
+       .option('    --templates <path>', 'DXC Framework Templates Directory', defaults.templates)
+       .option('    --functions <path>', 'DXC Framework Functions Directory', defaults.functions)
+       .option('    --scripts <path>', 'DXC Framework Scripts Directory', defaults.scripts)
+       .option('    --config <path>', 'DXC Framework Configuration Directory', defaults.config)
+       .option('    --system <system>', 'DXC Framework System Name', defaults.system)
+       .option('    --account <account>', 'DXC Framework Account Name (or Alias)', defaults.account)
+       .option('    --environment <environment>', 'DXC Framework Environment Name', defaults.environment)
+       .option('    --region <region>', 'DXC Framework Region Name', defaults.region)
+       .option('    --user <user>', 'DXC Framework User Name', defaults.user)
 
 program.command('list')
        .description('DXC Framework List Stacks command')
@@ -43,39 +43,54 @@ program.command('list')
        .action(async (options) => {
           try {
             debug(`dxcf-stack list()`);
+            if (!options.parent.region)
+              throw new CommandError('--region <region> required', errors.OPTION_REGION_MISSING);
+            if (!options.parent.user)
+              throw new CommandError('--user <user> required', errors.OPTION_USER_MISSING);
             util.debugOptions(options);
             config.load(options);
-            process.exitCode = await stack.describeStacks(config);
+            await stack.describeStacks(config);
           }
           catch (err) {
-            console.error(chalk.red(err.message));
-            process.exitCode = 999;
+            if (config.verbose) console.error(chalk.red(err.message));
+            if (err instanceof CommandError) process.exitCode = err.exitCode;
+            else process.exitCode = errors.UNKNOWN;
           }
         });
 
 program.command('create')
        .description('DXC Framework Create Stack command')
-       .option('-p --prerequisite [false]', 'Check Prerequisites', parseBool, env.PREREQUISITE)
-       .option('-l --lambda [false]', 'Check for Lambda Functions', parseBool, env.LAMBDA)
-       .option('-m --monitor [false]', 'Monitor Stack build', parseBool, env.MONITOR)
-       .option('-w --wait [false]', 'Wait for Stack build', parseBool, env.WAIT)
-       .option('-s --stack-name <stack>', 'Stack name', /^[A-Z][-A-Za-z0-9]{3,63}$/)
-       .option('-t --template-name <template>', 'Template name', /^[A-Z][-A-Za-z0-9]{3,63}$/)
-       .option('   --wait-interval <seconds>', 'Wait Interval', parseInt, 15)
+       .option('    --prerequisite [false]', 'Check Prerequisites', parseBool, defaults.prerequisite)
+       .option('    --lambda [false]', 'Check for Lambda Functions', parseBool, defaults.lambda)
+       .option('    --policy [false]', 'Check for Stack Policy', parseBool, defaults.policy)
+       .option('-m, --monitor [false]', 'Monitor Stack build', parseBool, defaults.monitor)
+       .option('-w, --wait [false]', 'Wait for Stack build', parseBool, defaults.wait)
+       .option('-s, --stack-name <stack>', 'Stack name', /^[A-Z][-A-Za-z0-9]{3,63}$/)
+       .option('-t, --template-name <template>', 'Template name', /^[A-Z][-A-Za-z0-9]{3,63}$/)
+       .option('    --wait-interval <seconds>', 'Wait Interval', parseInt, 15)
        .action(async (options) => {
           try {
             debug(`dxcf-stack create()`);
             if (!options.stackName)
-              throw new Error('--stack-name <stack> required');
+              throw new CommandError('--stack-name <stack> required', errors.OPTION_STACK_MISSING);
             if (!options.templateName)
-              throw new Error('--template-name <template> required');
+              throw new CommandError('--template-name <template> required', errors.OPTION_TEMPLATE_MISSING);
+            if (!options.parent.region)
+              throw new CommandError('--region <region> required', errors.OPTION_REGION_MISSING);
+            if (!options.parent.user)
+              throw new CommandError('--user <user> required', errors.OPTION_USER_MISSING);
             util.debugOptions(options);
             config.load(options);
-            process.exitCode = await stack.createStack(config);
+            await stack.createStack(config);
           }
           catch (err) {
-            console.error(chalk.red(err.message));
-            process.exitCode = 999;
+            if (config.verbose) console.error(chalk.red(err.message));
+            if (err instanceof CommandError) {
+              process.exitCode = err.exitCode;
+            }
+            else {
+              process.exitCode = errors.UNKNOWN;
+            }
           }
         });
 
@@ -83,5 +98,5 @@ program.parse(process.argv);
 
 if (!program.commands.map(cmd => cmd._name).includes((program.args[0]) ? program.args[0]._name : undefined)) {
   program.outputHelp();
-  process.exit(1);
+  process.exit(errors.COMMAND_INVALID);
 }

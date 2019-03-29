@@ -1,6 +1,6 @@
 [
   { "Name": "Organization", "LongName": "DXC Prototype Organization", "Alias": "dxcp",  "Id": "000000000000" },
-  { "Name": "Jumpstart",    "LongName": "DXC Prototype Jumpstart",    "Alias": "dxcpj", "Id": "000000000000" },
+  { "Name": "Jumpstart",    "LongName": "DXC Prototype Jumpstart",    "Alias": "dxcpj", "Id": "000000000000", "Default": true },
   { "Name": "Management",   "LongName": "DXC Prototype Management",   "Alias": "dxcpm", "Id": "000000000000" },
   { "Name": "Identity",     "LongName": "DXC Prototype Identity",     "Alias": "dxcpi", "Id": "000000000000" },
   { "Name": "Log",          "LongName": "DXC Prototype Log",          "Alias": "dxcpl", "Id": "000000000000" },

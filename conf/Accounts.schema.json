@@ -33,6 +33,10 @@
           "description": "The Id of the Account.",
           "pattern": "^[0-9]{12}$"
         },
+        "Default": {
+          "type": "boolean",
+          "description": "An optional flag to indicate the default Account."
+        },
         "Source": {
           "type": "string",
           "description": "The Source of the Account.",
