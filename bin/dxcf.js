@@ -7,6 +7,8 @@ const path = require('path');
 
 const dxcf = require(path.join(__dirname, '..', 'package.json'));
 
+const errors = require(path.join(__dirname, '..', 'lib', 'errors'));
+
 program
   .version(dxcf.version, '-v, --version')
   .description('DXC Framework CLI')
@@ -19,5 +21,5 @@ program.parse(process.argv);
 
 if (!program.commands.map(cmd => cmd._name).includes(program.args[0])) {
   program.outputHelp();
-  process.exit(1);
+  process.exit(errors.COMMAND_INVALID);
 }
