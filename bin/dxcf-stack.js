@@ -43,16 +43,17 @@ program.command('list')
        .action(async (options) => {
           try {
             debug(`dxcf-stack list()`);
+            util.debugOptions(options);
             if (!options.parent.region)
               throw new CommandError('--region <region> required', errors.OPTION_REGION_MISSING);
             if (!options.parent.user)
               throw new CommandError('--user <user> required', errors.OPTION_USER_MISSING);
-            util.debugOptions(options);
             config.load(options);
+            util.debugConfig(config);
             await stack.describeStacks(config);
           }
           catch (err) {
-            if (config.verbose) console.error(chalk.red(err.message));
+            if (options.parent.verbose) console.error(chalk.red(err.message));
             if (err instanceof CommandError) process.exitCode = err.exitCode;
             else process.exitCode = errors.UNKNOWN;
           }
@@ -71,6 +72,7 @@ program.command('create')
        .action(async (options) => {
           try {
             debug(`dxcf-stack create()`);
+            util.debugOptions(options);
             if (!options.stackName)
               throw new CommandError('--stack-name <stack> required', errors.OPTION_STACK_MISSING);
             if (!options.templateName)
@@ -79,12 +81,12 @@ program.command('create')
               throw new CommandError('--region <region> required', errors.OPTION_REGION_MISSING);
             if (!options.parent.user)
               throw new CommandError('--user <user> required', errors.OPTION_USER_MISSING);
-            util.debugOptions(options);
             config.load(options);
+            util.debugConfig(config);
             await stack.createStack(config);
           }
           catch (err) {
-            if (config.verbose) console.error(chalk.red(err.message));
+            if (options.parent.verbose) console.error(chalk.red(err.message));
             if (err instanceof CommandError) {
               process.exitCode = err.exitCode;
             }
