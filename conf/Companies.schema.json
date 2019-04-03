@@ -25,7 +25,7 @@
         },
         "Default": {
           "type": "boolean",
-          "description": "An optional flag to indicate the default Company."
+          "description": "An optional flag to indicate the default Company. Defaults to false. There should only be one Default Company."
         },
         "Source": {
           "type": "string",

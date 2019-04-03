@@ -1,14 +1,14 @@
 [
-  { "Name": "Audit",       "Code": "a" },
-  { "Name": "Build",       "Code": "b" },
-  { "Name": "Core",        "Code": "c" },
-  { "Name": "Development", "Code": "d" },
-  { "Name": "Example",     "Code": "e" },
-  { "Name": "Identity",    "Code": "i" },
-  { "Name": "Log",         "Code": "l" },
-  { "Name": "Management",  "Code": "m" },
-  { "Name": "Production",  "Code": "p" },
-  { "Name": "Recovery",    "Code": "r" },
-  { "Name": "Staging",     "Code": "s" },
-  { "Name": "Testing",     "Code": "t" }
+  { "Name": "Audit",       "Code": "a", "Active": false, "Default": false },
+  { "Name": "Build",       "Code": "b", "Active": false, "Default": false },
+  { "Name": "Core",        "Code": "c", "Active": false, "Default": false },
+  { "Name": "Development", "Code": "d", "Active": false, "Default": false },
+  { "Name": "Example",     "Code": "e", "Active": false, "Default": false },
+  { "Name": "Identity",    "Code": "i", "Active": false, "Default": false },
+  { "Name": "Log",         "Code": "l", "Active": false, "Default": false },
+  { "Name": "Management",  "Code": "m", "Active": false, "Default": false },
+  { "Name": "Production",  "Code": "p", "Active": false, "Default": false },
+  { "Name": "Recovery",    "Code": "r", "Active": false, "Default": false },
+  { "Name": "Staging",     "Code": "s", "Active": false, "Default": false },
+  { "Name": "Testing",     "Code": "t", "Active": false, "Default": false }
 ]

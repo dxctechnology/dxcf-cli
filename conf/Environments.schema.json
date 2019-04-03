@@ -21,10 +21,18 @@
           "description": "The Code of the Environment.",
           "enum": [ "a", "b", "c", "d", "e", "i", "l", "m", "p", "q", "r", "s", "t", "u" ]
         },
+        "Active": {
+          "type": "boolean",
+          "description": "An optional flag to indicate the Environment is in use. Defaults to false."
+        },
+        "Default": {
+          "type": "boolean",
+          "description": "An optional flag to indicate the default Environment. Defaults to false. There should only be one Default Environment."
+        },
         "Source": {
           "type": "string",
           "description": "The Source of the Environment.",
-          "enum": [ "Default", "Common", "System", "User" ]
+          "enum": [ "Default", "Common", "System", "Account", "Region", "User" ]
         }
       },
       "additionalProperties": false

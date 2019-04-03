@@ -1,0 +1,18 @@
+[
+  { "Name": "us-east-1",       "LongName": "US East (N. Virginia)",     "Code": "ue1", "Active": true,  "Default": true  },
+  { "Name": "us-east-2",       "LongName": "US East (Ohio)",            "Code": "ue2", "Active": false, "Default": false },
+  { "Name": "us-west-1",       "LongName": "US West (N. California)",   "Code": "uw1", "Active": false, "Default": false },
+  { "Name": "us-west-2",       "LongName": "US West (Oregon)",          "Code": "uw2", "Active": false, "Default": false },
+  { "Name": "ap-south-1",      "LongName": "Asia Pacific (Mumbai)",     "Code": "ad1", "Active": false, "Default": false },
+  { "Name": "ap-northeast-2",  "LongName": "Asia Pacific (Seoul)",      "Code": "an2", "Active": false, "Default": false },
+  { "Name": "ap-southeast-1",  "LongName": "Asia Pacific (Singapore)",  "Code": "as1", "Active": false, "Default": false },
+  { "Name": "ap-southeast-2",  "LongName": "Asia Pacific (Sydney)",     "Code": "as2", "Active": false, "Default": false },
+  { "Name": "ap-northeast-1",  "LongName": "Asia Pacific (Tokyo)",      "Code": "an1", "Active": false, "Default": false },
+  { "Name": "ca-central-1",    "LongName": "Canada (Central)",          "Code": "cc1", "Active": false, "Default": false },
+  { "Name": "eu-central-1",    "LongName": "EU (Frankfurt)",            "Code": "ec1", "Active": false, "Default": false },
+  { "Name": "eu-west-1",       "LongName": "EU (Ireland)",              "Code": "ew1", "Active": false, "Default": false },
+  { "Name": "eu-west-2",       "LongName": "EU (London)",               "Code": "ew2", "Active": false, "Default": false },
+  { "Name": "eu-west-3",       "LongName": "EU (Paris)",                "Code": "ew3", "Active": false, "Default": false },
+  { "Name": "eu-north-1",      "LongName": "EU (Stockholm)",            "Code": "en1", "Active": false, "Default": false },
+  { "Name": "sa-east-1",       "LongName": "South America (São Paulo)", "Code": "se1", "Active": false, "Default": false }
+]

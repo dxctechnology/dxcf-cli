@@ -35,7 +35,7 @@
         },
         "Default": {
           "type": "boolean",
-          "description": "An optional flag to indicate the default Account."
+          "description": "An optional flag to indicate the default Account. Defaults to false. There should only be one Default Account."
         },
         "Source": {
           "type": "string",
