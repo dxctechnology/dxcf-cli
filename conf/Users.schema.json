@@ -35,12 +35,12 @@
         },
         "Default": {
           "type": "boolean",
-          "description": "An optional flag to indicate the default User."
+          "description": "An optional flag to indicate the default User. Defaults to false. There should only be one Default User."
         },
         "Source": {
           "type": "string",
           "description": "The Source of the User.",
-          "enum": [ "Default", "Common", "System", "User" ]
+          "enum": [ "Default", "Common", "System", "Account", "Region", "User" ]
         }
       },
       "additionalProperties": false

@@ -1,0 +1,46 @@
+{
+  "$id": "https://schemas.dxcp.technology/Regions.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "DXC Framework Regions data file",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Region"
+  },
+  "definitions": {
+    "Region": {
+      "type": "object",
+      "required": [ "Name", "Code" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the Region.",
+          "enum": [ "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1", "eu-west-1", "eu-central-1", "eu-west-2", "eu-north-1", "eu-west-3", "ap-southeast-1", "ap-southeast-2", "ap-northeast-2", "ap-northeast-1", "ap-south-1", "sa-east-1" ]
+        },
+        "LongName": {
+          "type": "string",
+          "description": "The Long Name of the Region.",
+          "enum": [ "US East (N. Virginia)", "US East (Ohio)", "US West (N. California)", "US West (Oregon)", "Asia Pacific (Mumbai)", "Asia Pacific (Seoul)", "Asia Pacific (Singapore)", "Asia Pacific (Sydney)", "Asia Pacific (Tokyo)", "Canada (Central)", "EU (Frankfurt)", "EU (Ireland)", "EU (London)", "EU (Paris)", "EU (Stockholm)", "South America (São Paulo)" ]
+        },
+        "Code": {
+          "type": "string",
+          "description": "The Code of the Region.",
+          "pattern": "^[a-z][a-z][a-z0-9]$"
+        },
+        "Active": {
+          "type": "boolean",
+          "description": "An optional flag to indicate the Region is in use. Defaults to false."
+        },
+        "Default": {
+          "type": "boolean",
+          "description": "An optional flag to indicate the default Region. Defaults to false. There should only be one Default Region."
+        },
+        "Source": {
+          "type": "string",
+          "description": "The Source of the Region.",
+          "enum": [ "Default", "Common", "System", "Account", "User" ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

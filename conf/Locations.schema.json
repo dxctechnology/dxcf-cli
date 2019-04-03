@@ -31,7 +31,7 @@
         "Source": {
           "type": "string",
           "description": "The Source of the Location.",
-          "enum": [ "Default", "Common", "System", "User" ]
+          "enum": [ "Default", "Common", "System", "Account", "Region", "User" ]
         }
       },
       "additionalProperties": false

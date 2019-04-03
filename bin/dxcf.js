@@ -13,7 +13,10 @@ program
   .version(dxcf.version, '-v, --version')
   .description('DXC Framework CLI')
 //  .command('bootstrap [cmd]', 'Bootstrap the DXC Framework')
-  .command('stack [cmd]', 'Manage DXC Framework CloudFormation Stacks');
+  .command('system [cmd]', 'Manage DXC Framework Systems')
+  .command('account [cmd]', 'Manage DXC Framework Accounts')
+  .command('region [cmd]', 'Manage DXC Framework Regions')
+  .command('stack [cmd]', 'Manage DXC Framework Stacks');
 //  .command('bucket [cmd]', 'Manage DXC Framework S3 Buckets')
 //  .command('manage [cmd]', 'Manage DXC Framework Resources');
 

@@ -1,14 +1,14 @@
 [
-  { "Name": "Organization", "LongName": "DXC Prototype Organization", "Alias": "dxcp",  "Id": "000000000000" },
-  { "Name": "Jumpstart",    "LongName": "DXC Prototype Jumpstart",    "Alias": "dxcpj", "Id": "000000000000", "Default": true },
-  { "Name": "Management",   "LongName": "DXC Prototype Management",   "Alias": "dxcpm", "Id": "000000000000" },
-  { "Name": "Identity",     "LongName": "DXC Prototype Identity",     "Alias": "dxcpi", "Id": "000000000000" },
-  { "Name": "Log",          "LongName": "DXC Prototype Log",          "Alias": "dxcpl", "Id": "000000000000" },
-  { "Name": "Recovery",     "LongName": "DXC Prototype Recovery",     "Alias": "dxcpr", "Id": "000000000000" },
-  { "Name": "Build",        "LongName": "DXC Prototype Build",        "Alias": "dxcpb", "Id": "000000000000" },
-  { "Name": "Core",         "LongName": "DXC Prototype Core",         "Alias": "dxcpc", "Id": "000000000000" },
-  { "Name": "Production",   "LongName": "DXC Prototype Production",   "Alias": "dxcpp", "Id": "000000000000" },
-  { "Name": "Staging",      "LongName": "DXC Prototype Staging",      "Alias": "dxcps", "Id": "000000000000" },
-  { "Name": "Testing",      "LongName": "DXC Prototype Testing",      "Alias": "dxcpt", "Id": "000000000000" },
-  { "Name": "Development",  "LongName": "DXC Prototype Development",  "Alias": "dxcpd", "Id": "000000000000" }
+  { "Name": "Organization", "LongName": "DXC Prototype Organization", "Alias": "dxcp",  "Id": "000000000000", "Default": false },
+  { "Name": "Jumpstart",    "LongName": "DXC Prototype Jumpstart",    "Alias": "dxcpj", "Id": "000000000000", "Default": true  },
+  { "Name": "Management",   "LongName": "DXC Prototype Management",   "Alias": "dxcpm", "Id": "000000000000", "Default": false },
+  { "Name": "Identity",     "LongName": "DXC Prototype Identity",     "Alias": "dxcpi", "Id": "000000000000", "Default": false },
+  { "Name": "Log",          "LongName": "DXC Prototype Log",          "Alias": "dxcpl", "Id": "000000000000", "Default": false },
+  { "Name": "Recovery",     "LongName": "DXC Prototype Recovery",     "Alias": "dxcpr", "Id": "000000000000", "Default": false },
+  { "Name": "Build",        "LongName": "DXC Prototype Build",        "Alias": "dxcpb", "Id": "000000000000", "Default": false },
+  { "Name": "Core",         "LongName": "DXC Prototype Core",         "Alias": "dxcpc", "Id": "000000000000", "Default": false },
+  { "Name": "Production",   "LongName": "DXC Prototype Production",   "Alias": "dxcpp", "Id": "000000000000", "Default": false },
+  { "Name": "Staging",      "LongName": "DXC Prototype Staging",      "Alias": "dxcps", "Id": "000000000000", "Default": false },
+  { "Name": "Testing",      "LongName": "DXC Prototype Testing",      "Alias": "dxcpt", "Id": "000000000000", "Default": false },
+  { "Name": "Development",  "LongName": "DXC Prototype Development",  "Alias": "dxcpd", "Id": "000000000000", "Default": false }
 ]

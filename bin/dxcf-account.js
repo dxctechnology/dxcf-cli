@@ -2,11 +2,15 @@
 
 'use strict';
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/////  Under Current Development - cloned from dxcf-stack, not fully designed/modified yet    /////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
 const program = require('commander');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
-const debug = require('debug')('dxcf:cli:stack');
+const debug = require('debug')('dxcf:cli:account');
 const chalk = require('chalk');
 
 const util = require(path.join(__dirname, '..', 'lib', 'util'));
@@ -16,14 +20,14 @@ const config = require(path.join(__dirname, '..', 'lib', 'config'));
 const errors = require(path.join(__dirname, '..', 'lib', 'errors'));
 const CommandError = require(path.join(__dirname, '..', 'lib', 'errors')).CommandError;
 
-const stack = require(path.join(__dirname, '..', 'lib', 'commands', 'stack'));
+const account = require(path.join(__dirname, '..', 'lib', 'commands', 'account'));
 
 const parseBool = (bool) => {
   const re=/^(true|1|on)$/i;
   return re.test(bool);
 }
 
-program.description('DXC Framework Stack Sub-Commands');
+program.description('DXC Framework Account Sub-Commands');
 
 program.option('-v, --verbose [false]', 'Verbose', parseBool, defaults.verbose)
        .option('-c, --confirm [false]', 'Confirm', parseBool, defaults.confirm)
@@ -38,11 +42,11 @@ program.option('-v, --verbose [false]', 'Verbose', parseBool, defaults.verbose)
        .option('    --user <user>', 'DXC Framework User Name', defaults.user)
 
 program.command('list')
-       .description('DXC Framework List Stacks command')
+       .description('DXC Framework List Accounts command')
        .option('-s, --stack-name <stack>', 'Stack name', /^[A-Z][-A-Za-z0-9]{3,63}$/)
        .action(async (options) => {
           try {
-            debug(`dxcf-stack list()`);
+            debug(`dxcf-account list()`);
             util.debugOptions(options);
             //if (!options.parent.region)
             //  throw new CommandError('--region <region> required', errors.OPTION_REGION_MISSING);
@@ -50,7 +54,7 @@ program.command('list')
             //  throw new CommandError('--user <user> required', errors.OPTION_USER_MISSING);
             config.load(options);
             util.debugConfig(config);
-            await stack.describeStacks(config);
+            await stack.describeAccounts(config);
           }
           catch (err) {
             if (options.parent.verbose) console.error(chalk.red(err.message));
@@ -60,7 +64,7 @@ program.command('list')
         });
 
 program.command('create')
-       .description('DXC Framework Create Stack command')
+       .description('DXC Framework Create Account command')
        .option('    --prerequisite [false]', 'Check Prerequisites', parseBool, defaults.prerequisite)
        .option('    --lambda [false]', 'Check for Lambda Functions', parseBool, defaults.lambda)
        .option('    --policy [false]', 'Check for Stack Policy', parseBool, defaults.policy)
@@ -71,19 +75,19 @@ program.command('create')
        .option('    --wait-interval <seconds>', 'Wait Interval', parseInt, 15)
        .action(async (options) => {
           try {
-            debug(`dxcf-stack create()`);
+            debug(`dxcf-account create()`);
             util.debugOptions(options);
-            if (!options.stackName)
-              throw new CommandError('--stack-name <stack> required', errors.OPTION_STACK_MISSING);
-            if (!options.templateName)
-              throw new CommandError('--template-name <template> required', errors.OPTION_TEMPLATE_MISSING);
+            //if (!options.stackName)
+            //  throw new CommandError('--stack-name <stack> required', errors.OPTION_STACK_MISSING);
+            //if (!options.templateName)
+            //  throw new CommandError('--template-name <template> required', errors.OPTION_TEMPLATE_MISSING);
             //if (!options.parent.region)
             //  throw new CommandError('--region <region> required', errors.OPTION_REGION_MISSING);
             //if (!options.parent.user)
             //  throw new CommandError('--user <user> required', errors.OPTION_USER_MISSING);
             config.load(options);
             util.debugConfig(config);
-            await stack.createStack(config);
+            await stack.createAccount(config);
           }
           catch (err) {
             if (options.parent.verbose) console.error(chalk.red(err.message));

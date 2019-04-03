@@ -1,4 +1,4 @@
 [
-  { "Name": "Demo", "Code": "demo" },
-  { "Name": "DXC",  "Code": "dxc"  }
+  { "Name": "Demo", "Code": "demo", "Default": false },
+  { "Name": "DXC",  "Code": "dxc",  "Default": true  }
 ]

@@ -1,3 +1,3 @@
 [
-  { "Name": "Prototype", "Code": "proto" }
+  { "Name": "Prototype", "Code": "proto", "Default": true }
 ]

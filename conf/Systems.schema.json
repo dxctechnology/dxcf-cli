@@ -26,7 +26,7 @@
         },
         "Default": {
           "type": "boolean",
-          "description": "An optional flag to indicate the default System."
+          "description": "An optional flag to indicate the default System. Defaults to false. There should only be one Default System."
         },
         "Source": {
           "type": "string",
