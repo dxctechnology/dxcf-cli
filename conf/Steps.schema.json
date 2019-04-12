@@ -1,0 +1,96 @@
+{
+  "$id": "https://schemas.dxcp.technology/Steps.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "DXC Framework Steps data file",
+  "type": "object",
+  "properties": {
+    "Region": {
+      "type": "object",
+      "description": "The Region associated with the Steps in the data file.",
+      "required": [ "Name", "Type", "Phases" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the Region.",
+          "enum": [ "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1", "eu-west-1", "eu-central-1", "eu-west-2", "eu-north-1", "eu-west-3", "ap-southeast-1", "ap-southeast-2", "ap-northeast-2", "ap-northeast-1", "ap-south-1", "sa-east-1" ]
+        },
+        "Type": {
+          "type": "string",
+          "description": "The Type of the Region.",
+          "enum": [ "Global", "Workload" ]
+        },
+        "Phases": {
+          "type": "array",
+          "description": "The Phases in the process of building the Region.",
+          "items": {
+            "$ref": "#/definitions/Phase"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Phase": {
+      "type": "object",
+      "description": "A Phase in the process of building a Region.",
+      "required": [ "Name", "Type", "Steps" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the Phase.",
+          "enum": [ "Global-Baseline", "Global-Identity", "Region-Baseline", "Region-Domain", "Region-Network-VPC", "Region-Network-VPC-Peering", "Region-Utilities", "Region-Applications" ]
+        },
+        "Type": {
+          "type": "string",
+          "description": "The Type of the Phase.",
+          "enum": [ "Baseline", "Identity", "Domain", "Network-VPC", "Network-VPC-Peering", "Utilities", "Applications" ]
+        },
+        "Steps": {
+          "type": "array",
+          "description": "The Steps within the Phase.",
+          "items": {
+            "$ref": "#/definitions/Step"
+          }
+        }
+      }
+    },
+    "Step": {
+      "type": "object",
+      "description": "A Step in the process of building a Region.",
+      "required": [ "Name", "Type" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The Name of the Step.",
+          "pattern": "^([A-Z][A-Za-z0-9]{1,31})*$"
+        },
+        "Type": {
+          "type": "string",
+          "description": "The Type of the Step.",
+          "enum": [ "Stack", "Sync", "Command", "Script" ]
+        },
+        "Stack": {
+          "type": "string",
+          "description": "The Name of the Stack for a Stack-Type Step.",
+          "pattern": "^([A-Z][-A-Za-z0-9]{1,31})*$"
+        },
+        "Template": {
+          "type": "string",
+          "description": "The Template for a Stack for a Stack-Type Step.",
+          "pattern": "^([A-Z][-A-Za-z0-9]{1,31})*$"
+        },
+        "Script": {
+          "type": "string",
+          "description": "The Filename of the Script for a Script-Type Step.",
+          "pattern": "^([A-Za-z][-A-Za-z0-9]{1,63})*$"
+        },
+        "Command": {
+          "type": "string",
+          "description": "The Command for a Command-Type Step.",
+          "pattern": "^([A-Za-z][-A-Za-z0-9]{1,63})*$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
