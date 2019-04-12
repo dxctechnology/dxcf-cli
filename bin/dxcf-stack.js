@@ -44,12 +44,11 @@ program.command('list')
           try {
             debug(`dxcf-stack list()`);
             util.debugOptions(options);
-            //if (!options.parent.region)
-            //  throw new CommandError('--region <region> required', errors.OPTION_REGION_MISSING);
-            //if (!options.parent.user)
-            //  throw new CommandError('--user <user> required', errors.OPTION_USER_MISSING);
-            config.load(options);
-            util.debugConfig(config);
+            config.init(options);
+            config.initStack(options);
+            //util.debugConfigSchemas(config);
+            //util.debugConfigData(config);
+            //util.debugConfigOptions(config);
             await stack.describeStacks(config);
           }
           catch (err) {
@@ -77,12 +76,11 @@ program.command('create')
               throw new CommandError('--stack-name <stack> required', errors.OPTION_STACK_MISSING);
             if (!options.templateName)
               throw new CommandError('--template-name <template> required', errors.OPTION_TEMPLATE_MISSING);
-            //if (!options.parent.region)
-            //  throw new CommandError('--region <region> required', errors.OPTION_REGION_MISSING);
-            //if (!options.parent.user)
-            //  throw new CommandError('--user <user> required', errors.OPTION_USER_MISSING);
-            config.load(options);
-            util.debugConfig(config);
+            config.init(options);
+            config.initStack(options);
+            //util.debugConfigSchemas(config);
+            //util.debugConfigData(config);
+            util.debugConfigOptions(config);
             await stack.createStack(config);
           }
           catch (err) {
