@@ -35,11 +35,11 @@
     "debug": "^4.1.1",
     "fs": "0.0.1-security",
     "jmespath": "^0.15.0",
-    "js-yaml": "^3.13.0",
+    "js-yaml": "^3.13.1",
     "os": "^0.1.1",
     "path": "^0.12.7",
     "text-table": "^0.2.0",
-    "yaml-cfn": "^0.2.0"
+    "yaml-cfn": "^0.2.1"
   },
   "devDependencies": {
     "ajv-cli": "^3.0.0"
