@@ -1,19 +1,36 @@
 # Autodetect text files
 * text=auto
 
+# Explicitly identify text files
+*.txt text
+*.md text
+*.json text
+*.yaml text
+*.js text
+
+# Explicitly handle executable scripts to work with GitHub Desktop and WSL on Windows
+*.sh text eol=lf
+*.ps1 text
+*.bat text
+*.cmd text
+**/bin/* text eol=lf
+**/bin/*.ps1 -eol
+**/bin/*.bat -eol
+**/bin/*.cmd -eol
+
 # Explicitly identify binary files
-*.xls binary
-*.xlsx binary
 *.doc binary
 *.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
 *.vsd binary
 *.vsdx binary
 *.pdf binary
 *.png binary
 *.jpg binary
 *.gif binary
-
-# Explicitly identify text files
-*.txt text
-*.md text
-*.json text
+*.zip binary
+*.tgz binary
+*.gz binary
