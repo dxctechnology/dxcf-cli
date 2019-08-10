@@ -1,3 +1,12 @@
+# Directories to ignore
+old/
+new/
+tmp/
+save/
+
+# Lambda deployment packages
+*.zip
+
 # Logs
 logs
 *.log
@@ -75,9 +84,3 @@ certs/*.key.passphrase
 certs/*.pfx.passphrase
 *-passwords.txt
 keys-private/
-
-# Directories to ignore
-old/
-new/
-tmp/
-save/
