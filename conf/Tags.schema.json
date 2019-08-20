@@ -25,7 +25,7 @@
         "Source": {
           "type": "string",
           "description": "The Source of the Tag.",
-          "enum": [ "System", "Account", "Region", "Stack", "User" ]
+          "enum": [ "Default", "Common", "System", "Account", "Region", "Stack", "User", "Command" ]
         }
       },
       "additionalProperties": false
