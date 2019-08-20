@@ -24,7 +24,7 @@ interactive=0
 speed=100
 buckets=all
 region=${AWS_DEFAULT_REGION:-us-west-2}
-account=${AWS_ACCOUNT_ALIAS:-dxchlsb}
+account=${AWS_ACCOUNT_ALIAS:-dxcapp}
 user=${AWS_USER_NAME:-administrator}
 
 standard_buckets="templates functions scripts configurations products backups"

@@ -20,7 +20,7 @@ interactive=0
 speed=100
 stack=all
 region=${AWS_DEFAULT_REGION:-us-west-2}
-account=${AWS_ACCOUNT_ALIAS:-dxcapj}
+account=${AWS_ACCOUNT_ALIAS:-dxcapp}
 user=${AWS_USER_NAME:-administrator}
 
 

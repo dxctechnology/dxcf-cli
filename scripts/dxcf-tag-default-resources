@@ -21,7 +21,7 @@ company=${COMPANY_NAME:-HLS}
 system=${SYSTEM_NAME:-Analytics}
 environment=Default
 region=${AWS_DEFAULT_REGION:-us-west-2}
-account=${AWS_ACCOUNT_ALIAS:-dxchlsb}
+account=${AWS_ACCOUNT_ALIAS:-dxcapp}
 user=${AWS_USER_NAME:-administrator}
 
 

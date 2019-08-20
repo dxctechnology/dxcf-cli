@@ -24,7 +24,7 @@ buckets=default
 source_region=us-east-1
 destination_region=us-east-2
 region=us-east-1
-account=${AWS_ACCOUNT_ALIAS:-dxcapj}
+account=${AWS_ACCOUNT_ALIAS:-dxcapp}
 user=${AWS_USER_NAME:-administrator}
 
 
