@@ -38,7 +38,7 @@
     "js-yaml": "^3.13.1",
     "os": "^0.1.1",
     "path": "^0.12.7",
-    "text-table": "^0.2.0",
+    "table": "^5.4.6",
     "yaml-cfn": "^0.2.2"
   },
   "devDependencies": {
