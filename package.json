@@ -25,21 +25,21 @@
   },
   "homepage": "https://github.com/dxctechnology/dxcf-cli#readme",
   "dependencies": {
-    "ajv": "^6.10.0",
+    "ajv": "^6.10.2",
     "async-prompt": "^1.0.1",
-    "aws-sdk": "^2.406.0",
+    "aws-sdk": "^2.517.0",
     "chalk": "^2.4.2",
     "child-process": "^1.0.2",
     "clone": "^2.1.2",
-    "commander": "^2.19.0",
+    "commander": "^2.20.0",
     "debug": "^4.1.1",
     "fs": "0.0.1-security",
     "jmespath": "^0.15.0",
     "js-yaml": "^3.13.1",
     "os": "^0.1.1",
     "path": "^0.12.7",
-    "text-table": "^0.2.0",
-    "yaml-cfn": "^0.2.1"
+    "table": "^5.4.6",
+    "yaml-cfn": "^0.2.2"
   },
   "devDependencies": {
     "ajv-cli": "^3.0.0"
