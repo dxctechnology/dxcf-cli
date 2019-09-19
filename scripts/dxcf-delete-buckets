@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# This script deletes all S3 buckets from one region
+# This script deletes all S3 Buckets from one Region
 #
 # This is - needless to say - a very dangerous operation. BE CAREFUL!
-# This is meant to speed up deletion of buckets when clearing out an Account during
+# This is meant to speed up deletion of Buckets when clearing out an Account during
 # CloudFormation Template testing.
 #
 
