@@ -1,0 +1,9 @@
+[
+  { "Name": "verbose",      "Value": false },
+  { "Name": "confirm",      "Value": false },
+  { "Name": "prerequisite", "Value": true  },
+  { "Name": "lambda",       "Value": true  },
+  { "Name": "policy",       "Value": true  },
+  { "Name": "monitor",      "Value": false },
+  { "Name": "wait",         "Value": false }
+]
