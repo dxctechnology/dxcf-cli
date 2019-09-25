@@ -17,6 +17,10 @@
 **/bin/*.ps1 -eol
 **/bin/*.bat -eol
 **/bin/*.cmd -eol
+**/scripts/* text eol=lf
+**/scripts/*.ps1 -eol
+**/scripts/*.bat -eol
+**/scripts/*.cmd -eol
 
 # Explicitly identify binary files
 *.doc binary
