@@ -49,6 +49,15 @@ const parseTag = (keyValue, tags) => {
   return tags;
 }
 
+const parseCapability = (capability, capabilities) => {
+  const re=/^(CAPABILITY_IAM|CAPABILITY_NAMED_IAM)$/;
+  if (! re.test(capability)) {
+    throw new CommandError(`--capability ${capability} invalid`, errors.OPTION_CAPABILITY_INVALID);
+  }
+  capabilities.push(capability);
+  return capabilities;
+}
+
 program.description('DXC Framework Stack Sub-Commands');
 
 program.option('    --config <path>', 'DXC Framework Configuration Repository', defaults.config)
@@ -94,6 +103,7 @@ program.command('create')
        .option('-t, --template-name <template>', 'Template name', /^[A-Z][-A-Za-z0-9]{3,63}$/)
        .option('    --parameter <key=value>', 'Override parameter', parseParameter, [])
        .option('    --tag <key=value>', 'Override tag', parseTag, [])
+       .option('    --capability <capability>', 'Override capability', parseCapability, [])
        .option('-m, --monitor [false]', 'Monitor Stack build', parseBoolean, defaults.monitor)
        .option('-w, --wait [false]', 'Wait for Stack build', parseBoolean, defaults.wait)
        .option('    --prerequisite [false]', 'Check Prerequisites', parseBoolean, defaults.prerequisite)
